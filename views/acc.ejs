@@ -1,0 +1,62 @@
+<html lang="en">
+
+   <%- include header %>
+   <!-- Main component for a primary marketing message or call to action -->
+   <div class="sidenav">
+<a href="/profile" >Current</a>
+<a href="/family">Family</a>
+<a href="/dis">Disease and allergies</a>
+<a href="/acc" class="active">accidents</a>
+</div>
+
+
+<!-- Page content -->
+<p style="font-size:200%;">Accidents</p>
+
+<ul class="list-group">
+       <% for(var i=0; i<data.length; i++) {%>
+           <li class="list-group-item">
+               <span>date_>> </span><%= data[i].doa %>
+               <br/>
+               <span>accident_name_>> </span><%= data[i].a_name %>
+               <br/>
+               <span>Description_>> </span><%= data[i].injured_part %>
+
+           </li>
+       <% } %>
+   </ul>
+
+      <div class="jumbotron">
+        <p>To delete a particular accident type accident_name and hit Remove!!</p>
+
+
+        <form action="/acc" method="post">
+
+            <% if (message.length > 0) { %>
+                                                                                          <div class="alert alert-success col-sm-12"><%= message %></div>
+                                                                              <% } %>
+
+
+        Date:<br/>
+        <input type="date" name="date" placeholder="select the date">
+        <br/>Accident name:<br/>
+        <input type="text" name="aname" placeholder="accident name">
+        <br/>Description:<br/>
+        <textarea name="part" rows="1" cols="80" placeholder="injured body parts description"></textarea>
+         <br/>
+        <button  type="submit" formaction ="/acc1"  class="btn btn-info">  Remove</button>
+        <button type="submit" class="btn btn-info"><i class="icon-hand-right""></i> &nbsp  ADD </button>
+
+
+
+      </form>
+      <script>
+      function myFunction() {
+       alert("condition added!");
+       }
+      </script>
+
+
+
+      </div>
+    <%- include footer %>

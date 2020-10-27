@@ -1,0 +1,58 @@
+<html lang="en">
+
+   <%- include header %>
+   <!-- Main component for a primary marketing message or call to action -->
+   <div class="sidenav">
+<a href="/profile" >Current</a>
+<a href="/family" class="active">Family</a>
+<a href="/dis">Disease and allergies</a>
+<a href="/acc" >accidents</a>
+</div>
+<!-- Page content -->
+<p style="font-size:200%;">Family</p>
+
+<ul class="list-group">
+       <% for(var i=0; i<data.length; i++) {%>
+           <li class="list-group-item">
+               <span>First name_>> </span><%= data[i].first_name %>
+               <br/>
+               <span>Last name_>> </span><%= data[i].last_name %>
+               <br/>
+               <span>Blood group_>> </span><%= data[i].blood_group %>
+               <br/>
+               <span>Age_>> </span><%= data[i].age %>
+
+           </li>
+       <% } %>
+   </ul>
+
+      <div class="jumbotron">
+
+
+        <form action="/family" method="post">
+
+            <% if (message.length > 0) { %>
+                                                                                          <div class="alert alert-success col-sm-12"><%= message %></div>
+                                                                              <% } %>
+
+                <% if (name.length > 0) { %>
+                                                              <div >Family ID _>> <%= name %></div>
+                                                                                                    <% } %>
+
+        <input type="text" name="family_id" placeholder="family_id">
+        <button  type="submit" formaction ="/family1"  class="btn btn-info">  Remove</button>
+        <button type="submit" class="btn btn-info"><i class="icon-hand-right""></i> &nbsp  NEW/CHANGE </button>
+
+
+
+      </form>
+      <script>
+      function myFunction() {
+       alert("condition added!");
+       }
+      </script>
+
+
+
+      </div>
+    <%- include footer %>

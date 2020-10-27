@@ -1,0 +1,89 @@
+<html lang="en">
+
+   <%- include header %>
+   <!-- Main component for a primary marketing message or call to action -->
+   <div class="sidenav">
+ <a href="/profile" class="active">Current</a>
+ <a href="/family">Family</a>
+ <a href="/dis">Disease and allergies</a>
+ <a href="/acc">accidents</a>
+ </div>
+<!-- Page content -->
+
+
+      <div class="jumbotron">
+        <h1>Welcome</h1>
+        <h2>User details</h2>
+        <ul class="list-group">
+               <% for(var i=0; i<data.length; i++) {%>
+
+                   <li class="list-group-item">
+                       <span>First name_>> </span><%= data[i].first_name %>
+                       <br/>
+                       <span>Last name_>> </span><%= data[i].last_name %>
+                       <br/>
+                       <span>Blood group_>> </span><%= data[i].blood_group %>
+                       <br/>
+                       <span>Age_>> </span><%= data[i].age %>
+
+                   </li>
+               <% } %>
+           </ul>
+
+
+
+<h2>Conditions</h2>
+           <ul class="list-group">
+                  <% for(var i=0; i<data1.length; i++) {%>
+                      <li class="list-group-item">
+                          <span>Date _>> </span><%= data1[i].date %>
+                          <br/>
+                          <span>Condition_name _>> </span><%= data1[i].problem_name %>
+                          <br/>
+                          <span>Type _>> </span><%= data1[i].type %>
+                          <br/>
+                          <span>Medication _>> </span><%= data1[i].medication %>
+                      </li>
+                  <% } %>
+              </ul>
+
+
+  <h2>Accidents</h2>
+
+              <ul class="list-group">
+                     <% for(var i=0; i<data2.length; i++) {%>
+                         <li class="list-group-item">
+                             <span>date_>> </span><%= data2[i].doa %>
+                             <br/>
+                             <span>accident_name_>> </span><%= data2[i].a_name %>
+                             <br/>
+                             <span>Description_>> </span><%= data2[i].injured_part %>
+
+                         </li>
+                     <% } %>
+                 </ul>
+                 <h2>Heridity diseases</h2>
+
+                             <ul class="list-group">
+                                    <% for(var i=0; i<data3.length; i++) {%>
+                                        <li class="list-group-item">
+                                            <span>Condition name _>> </span><%= data3[i].problem_name %>
+                                            <br/>
+
+
+                                        </li>
+                                    <% } %>
+                                </ul>
+
+
+
+
+
+      </div>
+
+
+
+
+
+      </div>
+    <%- include footer %>

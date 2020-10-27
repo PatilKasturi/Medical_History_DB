@@ -1,0 +1,105 @@
+<html lang="en">
+
+   <%- include header %>
+   <!-- Main component for a primary marketing message or call to action -->
+
+<!-- Page content -->
+<div class="sidenav">
+<a href="/profile" class="active">Current</a>
+<a href="/family">Family</a>
+<a href="/dis">Disease and allergies</a>
+<a href="/acc">accidents</a>
+</div>
+
+<div class="container col-sm-12" id="mainform">
+        <div id="updatebox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">Update</div>
+
+                    </div>
+                    <div class="panel-body" >
+                        <form class="form-horizontal" role="form" method="post" action="/pro_update" onSubmit="return checkblank(this);">
+                         <% if (message.length > 0) { %>
+                                                                                                        <div class="alert alert-success col-sm-12"><%= message %></div>
+                                                                                            <% } %>
+
+
+
+                          <div id="signupalert" style="display:none" class="alert alert-danger">
+                                <p>Error:</p>
+                                <span></span>
+                            </div>
+
+                    <% for(var i=0; i<data.length; i++) {%>
+                            <div class="form-group">
+                                <label for="first_name" class="col-md-3 control-label">First Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" value="<%= data[i].first_name %>" name="first_name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name" class="col-md-3 control-label">Last Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="last_name" value="<%= data[i].last_name %>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mob_no" class="col-md-3 control-label">Mobile No.</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="mob_no" value="<%= data[i].mob_no %>">
+                                </div>
+                            </div>
+                                                                                            <div class="form-group">
+                                <label for="user_name" class="col-md-3 control-label">User Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="user_name" value="<%= data[i].user_name %>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="col-md-3 control-label">Password</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="password" value="<%= data[i].password %>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="family_id" class="col-md-3 control-label">Family_Id</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="family_id" value="<%= data[i].family_id %>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="age" class="col-md-3 control-label">age</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="age" value="<%= data[i].age %>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="blood_group" class="col-md-3 control-label">bloodgroup</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="blood_group" value="<%= data[i].blood_group %>">
+                                </div>
+                            </div>
+
+                           <% } %>
+
+
+                                <!-- Button -->
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Update</button>
+
+                                </div>
+                            </div>
+
+
+
+
+                        </form>
+                     </div>
+                </div>
+
+
+     </div>
+</div>
+    <%- include footer %>
